@@ -1,0 +1,157 @@
+{
+  "version": "P2-1",
+  "description": "30 条服务业场景评测集：每条含场景文本 + 期望断言（参数解析正确性 / 可运行 / 结果合理性 / 利用率对齐理论值）",
+  "tolerance": {"numeric_rel": 0.05, "vip_share_abs": 0.05, "util_vs_rho_abs": 0.10},
+  "scenes": [
+    {
+      "id": "E01", "model_type": "single_queue_multi_server",
+      "text": "一个客服中心，10 个坐席接听电话，客户来电平均每 30 秒一通，每通电话平均通话 4 分钟，通话时长服从指数分布。仿真一个工作日 8 小时。",
+      "expect": {"num_servers": 10, "mean_interval": 0.5, "mean_service": 4.0, "duration": 480}
+    },
+    {
+      "id": "E02", "model_type": "single_queue_multi_server",
+      "text": "银行网点有 4 个服务窗口，每位客户平均办理 5 分钟，办理时间服从指数分布，客户平均每 2 分钟到达一位。模拟营业 480 分钟。",
+      "expect": {"num_servers": 4, "mean_interval": 2.0, "mean_service": 5.0, "duration": 480}
+    },
+    {
+      "id": "E03", "model_type": "single_queue_multi_server",
+      "text": "医院挂号处有 3 个窗口，每位患者挂号平均需要 6 分钟（指数分布），患者平均每 3.5 分钟到达一位。运行 8 小时看看排队情况。",
+      "expect": {"num_servers": 3, "mean_interval": 3.5, "mean_service": 6.0, "duration": 480}
+    },
+    {
+      "id": "E04", "model_type": "single_queue_multi_server",
+      "text": "快餐店午市开放 6 个收银台，顾客平均每 45 秒到一位，点餐结算平均 2.5 分钟，指数分布。仿真午市 2 小时。",
+      "expect": {"num_servers": 6, "mean_interval": 0.75, "mean_service": 2.5, "duration": 120}
+    },
+    {
+      "id": "E05", "model_type": "single_queue_multi_server",
+      "text": "政务服务中心开 8 个窗口，平均每小时来 60 位市民，每位办事平均 7 分钟（指数分布）。模拟半天营业 4 小时。",
+      "expect": {"num_servers": 8, "mean_interval": 1.0, "mean_service": 7.0, "duration": 240}
+    },
+    {
+      "id": "E06", "model_type": "single_queue_multi_server",
+      "text": "理财咨询热线有 15 个坐席，来电平均每分钟 2.5 通，每通平均通话 5 分钟，指数分布。仿真 8 小时。",
+      "expect": {"num_servers": 15, "mean_interval": 0.4, "mean_service": 5.0, "duration": 480}
+    },
+    {
+      "id": "E07", "model_type": "single_queue_multi_server",
+      "text": "社区药店有 2 个收银位，顾客平均每 6 分钟来一位，结算平均 3 分钟，指数分布。营业一整天 8 小时。",
+      "expect": {"num_servers": 2, "mean_interval": 6.0, "mean_service": 3.0, "duration": 480}
+    },
+    {
+      "id": "E08", "model_type": "single_queue_multi_server",
+      "text": "机场值机区 12 个柜台，旅客平均每 20 秒到达一位，办理乘机手续平均 3 分钟，指数分布。仿真 4 小时。",
+      "expect": {"num_servers": 12, "mean_interval": 0.3333, "mean_service": 3.0, "duration": 240}
+    },
+    {
+      "id": "E09", "model_type": "single_queue_multi_server",
+      "text": "车站售票厅 5 个售票窗口，旅客平均每 90 秒来一位，购票平均 2 分钟，指数分布。模拟 4 小时。",
+      "expect": {"num_servers": 5, "mean_interval": 1.5, "mean_service": 2.0, "duration": 240}
+    },
+    {
+      "id": "E10", "model_type": "single_queue_multi_server",
+      "text": "保险客服中心 8 个坐席，来电平均每 40 秒一通，通话平均 3.5 分钟，指数分布。仿真一个工作日。",
+      "expect": {"num_servers": 8, "mean_interval": 0.6667, "mean_service": 3.5, "duration": 480}
+    },
+    {
+      "id": "E11", "model_type": "finite_queue",
+      "text": "银行网点有 3 个窗口，大厅等位区最多容纳 10 人排队，客满后新到客户直接离开。客户平均每 4 分钟来一位，办理平均 8 分钟，指数分布。模拟 4 小时。",
+      "expect": {"num_servers": 3, "mean_interval": 4.0, "mean_service": 8.0, "queue_capacity": 10, "duration": 240}
+    },
+    {
+      "id": "E12", "model_type": "finite_queue",
+      "text": "停车场出口有 2 个缴费亭，缴费通道最多排 8 辆车，排满后车辆走别的出口。车辆平均每 90 秒到一辆，缴费平均 1.5 分钟，指数分布。仿真 8 小时。",
+      "expect": {"num_servers": 2, "mean_interval": 1.5, "mean_service": 1.5, "queue_capacity": 8, "duration": 480}
+    },
+    {
+      "id": "E13", "model_type": "finite_queue",
+      "text": "餐厅晚市有 4 张桌同时接待，等位区有 12 个座位，坐满后客人不等了。顾客平均每 6 分钟来一桌，每桌平均用餐加翻台 15 分钟，指数分布。晚市营业 8 小时。",
+      "expect": {"num_servers": 4, "mean_interval": 6.0, "mean_service": 15.0, "queue_capacity": 12, "duration": 480}
+    },
+    {
+      "id": "E14", "model_type": "finite_queue",
+      "text": "社区诊所有 2 位医生，候诊室有 6 个座位，坐满后新患者不再挂号。患者平均每 8 分钟来一位，看诊平均 12 分钟，指数分布。全天营业 8 小时。",
+      "expect": {"num_servers": 2, "mean_interval": 8.0, "mean_service": 12.0, "queue_capacity": 6, "duration": 480}
+    },
+    {
+      "id": "E15", "model_type": "finite_queue",
+      "text": "网红奶茶店有 3 个制作工位，店内最多容纳 15 位顾客排队，满员后新客直接走掉。顾客平均每 1.5 分钟来一位，制作一杯平均 2 分钟，指数分布。营业 8 小时。",
+      "expect": {"num_servers": 3, "mean_interval": 1.5, "mean_service": 2.0, "queue_capacity": 15, "duration": 480}
+    },
+    {
+      "id": "E16", "model_type": "finite_queue",
+      "text": "高速收费站一条 ETC 通道，后方最多排队 20 辆车，满后车辆分流到人工通道。车辆平均每 12 秒到一辆，通过 ETC 平均 6 秒，指数分布。仿真 4 小时。",
+      "expect": {"num_servers": 1, "mean_interval": 0.2, "mean_service": 0.1, "queue_capacity": 20, "duration": 240}
+    },
+    {
+      "id": "E17", "model_type": "multi_stage_line",
+      "text": "医院体检中心流程：先在 2 个登记窗口登记（平均 3 分钟），再到 5 个检查室做检查（平均 15 分钟），最后在 2 个报告窗口出报告（平均 4 分钟）。体检者平均每 6 分钟到达一位，各环节时间均服从指数分布。仿真 8 小时。",
+      "expect": {"mean_interval": 6.0, "stages": [[2, 3.0], [5, 15.0], [2, 4.0]], "duration": 480}
+    },
+    {
+      "id": "E18", "model_type": "multi_stage_line",
+      "text": "银行对公开户要两步：先由 1 位预审专员审核材料（平均 4 分钟），再到 5 个柜面窗口正式办理（平均 12 分钟）。客户平均每 5 分钟来一位，均为指数分布。模拟全天 8 小时。",
+      "expect": {"mean_interval": 5.0, "stages": [[1, 4.0], [5, 12.0]], "duration": 480}
+    },
+    {
+      "id": "E19", "model_type": "multi_stage_line",
+      "text": "洗车行三道工序：2 个吸尘工位（平均 8 分钟）、2 个清洗工位（平均 10 分钟）、1 个交车检查工位（平均 5 分钟）。车辆平均每 6 分钟来一辆，各工序指数分布。仿真 8 小时。",
+      "expect": {"mean_interval": 6.0, "stages": [[2, 8.0], [2, 10.0], [1, 5.0]], "duration": 480}
+    },
+    {
+      "id": "E20", "model_type": "multi_stage_line",
+      "text": "客服中心每通电话先由 4 个一线坐席接听记录（平均 4 分钟），随后都必须转给 2 位二线专家复核处理（平均 10 分钟）。来电平均每 6 分钟一通，通话与复核均服从指数分布。仿真一个工作日 8 小时。",
+      "expect": {"mean_interval": 6.0, "stages": [[4, 4.0], [2, 10.0]], "duration": 480}
+    },
+    {
+      "id": "E21", "model_type": "multi_stage_line",
+      "text": "门诊就诊流程：1 位分诊护士分诊（平均 2 分钟），然后 3 个诊室就诊（平均 10 分钟），最后 2 个缴费取药窗口（平均 3 分钟）。患者平均每 5 分钟到达一位，各环节指数分布。仿真 8 小时。",
+      "expect": {"mean_interval": 5.0, "stages": [[1, 2.0], [3, 10.0], [2, 3.0]], "duration": 480}
+    },
+    {
+      "id": "E22", "model_type": "peak_arrival",
+      "text": "客服中心 10 个坐席，每通电话平均 4 分钟（指数分布）。开门后前 2 个半小时是早高峰，来电平均每 40 秒一通；之后直到下班平均每 2 分钟一通。营业共 8 小时。",
+      "expect": {"num_servers": 10, "mean_service": 4.0, "period_count": 2, "period_intervals": [0.6667, 2.0], "duration": 480}
+    },
+    {
+      "id": "E23", "model_type": "peak_arrival",
+      "text": "餐厅午市有 8 张桌，每桌用餐加翻台平均 15 分钟（指数分布）。开餐后前 150 分钟是高峰，平均每 2.5 分钟来一桌；之后 150 分钟平均每 5 分钟来一桌。共模拟 5 小时。",
+      "expect": {"num_servers": 8, "mean_service": 15.0, "period_count": 2, "period_intervals": [2.5, 5.0], "duration": 300}
+    },
+    {
+      "id": "E24", "model_type": "peak_arrival",
+      "text": "银行网点 5 个窗口，办理业务平均 8 分钟（指数分布）。刚开门的 1 小时客户集中，平均每 4 分钟来一位；随后 5 小时平均每 6 分钟来一位。共营业 6 小时。",
+      "expect": {"num_servers": 5, "mean_service": 8.0, "period_count": 2, "period_intervals": [4.0, 6.0], "duration": 360}
+    },
+    {
+      "id": "E25", "model_type": "peak_arrival",
+      "text": "地铁站早高峰有 4 条安检通道，每人通过安检平均 10 秒（指数分布）。高峰 2 小时内乘客平均每 3 秒到一位；之后 4 小时平峰平均每 10 秒到一位。共仿真 6 小时。",
+      "expect": {"num_servers": 4, "mean_service": 0.1667, "period_count": 2, "period_intervals": [0.05, 0.1667], "duration": 360}
+    },
+    {
+      "id": "E26", "model_type": "peak_arrival",
+      "text": "政务大厅 6 个窗口，办事平均 10 分钟（指数分布）。开门第 1 小时客户集中，平均每 4 分钟来一位；之后 7 小时平均每 6 分钟来一位。共 8 小时。",
+      "expect": {"num_servers": 6, "mean_service": 10.0, "period_count": 2, "period_intervals": [4.0, 6.0], "duration": 480}
+    },
+    {
+      "id": "E27", "model_type": "priority_queue",
+      "text": "银行网点 4 个窗口，每位客户办理平均 8 分钟（指数分布），客户平均每 4 分钟来一位；其中 20% 是金卡客户，可优先叫号（不可打断服务中客户）。仿真 8 小时。",
+      "expect": {"num_servers": 4, "mean_interval": 4.0, "mean_service": 8.0, "vip_share": 0.2, "duration": 480}
+    },
+    {
+      "id": "E28", "model_type": "priority_queue",
+      "text": "机场值机岛 3 个柜台，办理平均 5 分钟（指数分布），旅客平均每 6 分钟到一位；30% 是头等舱旅客享受优先服务。模拟全天 8 小时。",
+      "expect": {"num_servers": 3, "mean_interval": 6.0, "mean_service": 5.0, "vip_share": 0.3, "duration": 480}
+    },
+    {
+      "id": "E29", "model_type": "priority_queue",
+      "text": "客服中心 12 个坐席，通话平均 5 分钟（指数分布），来电平均每 90 秒一通；10% 是会员来电优先接入。仿真 8 小时。",
+      "expect": {"num_servers": 12, "mean_interval": 1.5, "mean_service": 5.0, "vip_share": 0.1, "duration": 480}
+    },
+    {
+      "id": "E30", "model_type": "priority_queue",
+      "text": "药房 2 个发药窗口，结算发药平均 4 分钟（指数分布），患者平均每 5 分钟来一位；其中 25% 是 65 岁以上老人，享受优先取药。全天营业 8 小时。",
+      "expect": {"num_servers": 2, "mean_interval": 5.0, "mean_service": 4.0, "vip_share": 0.25, "duration": 480}
+    }
+  ]
+}
