@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# 密钥与本地配置（绝不进仓库）
+.env
+
+# 运行产物
+output/
+*.log
+runs/
+evals/eval_report*.txt
+evals/eval_report*.json
+evals/trend.html
+
+# 临时文件
+_tmp*
+
+# IDE / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
